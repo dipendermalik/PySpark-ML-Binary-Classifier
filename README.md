@@ -75,7 +75,7 @@ Models are evaluated using several metrics:
 - Area Under ROC Curve (AUC)
 
 ## Results
-The performance of the models is summarized below:
+The table below highlights the performance metrics of various classification models used in the analysis:
 
 | Model                     | AUC      | Accuracy | Precision | Recall   | F1       |
 |---------------------------|----------|----------|-----------|----------|----------|
@@ -86,7 +86,7 @@ The performance of the models is summarized below:
 | Decision Tree             | 0.597458 | 0.836066 | 0.837356  | 0.836066 | 0.836607 |
 | Naive Bayes               | 0.528357 | 0.699454 | 0.689202  | 0.699454 | 0.690602 |
 
-Based on the above metrix, it is clearly eveident that Random forest outperformed others.
+Based on the metrics, the Random Forest model outperformed the others, demonstrating the highest AUC, accuracy, precision, recall, and F1 score, indicating its superior ability to classify the data effectively.
 
 ## Contributing
 Contributions are welcome! Please feel free to submit a pull request or open an issue.
