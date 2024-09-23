@@ -17,19 +17,29 @@ This project demonstrates a binary classification approach using PySpark MLlib t
 The goal of this project is to build a binary classifier using PySpark to predict the survival of passengers on the Titanic. We explore various classification algorithms, evaluate their performance, and select the best model based on evaluation metrics.
 
 ## Setup and Installation
-To run this project, you need to set up PySpark and Java. Below are the steps to set up the environment:
+To run this project, you need to set up PySpark and Java. Below are the steps to set up the environment in Colab:
 
 ```bash
-# Install Java and Spark
+# Download Java and Spark
 !apt-get install openjdk-8-jdk-headless -qq > /dev/null
 !wget -q http://archive.apache.org/dist/spark/spark-3.2.1/spark-3.2.1-bin-hadoop3.2.tgz
 !tar xf spark-3.2.1-bin-hadoop3.2.tgz
 !pip install -q findspark
 
-# Set up the paths:
+# Set up the paths
 import os
 os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-8-openjdk-amd64"
 os.environ["SPARK_HOME"] = "/content/spark-3.2.1-bin-hadoop3.2"
+
+# Create a Spark session
+import findspark
+findspark.init()
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.master("local[*]").getOrCreate()
+spark.conf.set("spark.sql.repl.eagerEval.enabled", True) # Property used to format output tables better
+spark.conf.set("spark.sql.caseSensitive", True) # Avoid error "Found duplicate column(s) in the data schema"
+spark
+
 ```
 
 ## Data Preparation
@@ -75,6 +85,8 @@ The performance of the models is summarized below:
 | Support Vector Machine    | 0.854563 | 0.765027 | 0.767721  | 0.765027 | 0.766165 |
 | Decision Tree             | 0.597458 | 0.836066 | 0.837356  | 0.836066 | 0.836607 |
 | Naive Bayes               | 0.528357 | 0.699454 | 0.689202  | 0.699454 | 0.690602 |
+
+Based on the above metrix, it is clearly eveident that Random forest outperformed others.
 
 ## Contributing
 Contributions are welcome! Please feel free to submit a pull request or open an issue.
