@@ -30,7 +30,7 @@ To run this project, you need to set up PySpark and Java. Below are the steps to
 import os
 os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-8-openjdk-amd64"
 os.environ["SPARK_HOME"] = "/content/spark-3.2.1-bin-hadoop3.2"
-
+```
 
 ## Data Preparation
 The dataset used in this project is the Titanic passenger data. After loading the data, several preprocessing steps are performed:
@@ -78,3 +78,4 @@ The performance of the models is summarized below:
 
 ## Contributing
 Contributions are welcome! Please feel free to submit a pull request or open an issue.
+
